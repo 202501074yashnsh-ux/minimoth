@@ -1,0 +1,242 @@
+:root {
+  color: #f4efe9;
+  background: #161225;
+  font-family: Inter, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --bg: #161225;
+  --panel: #201c31;
+  --panel-alt: #2a2440;
+  --border: rgba(255, 255, 255, 0.08);
+  --muted: #b9b0d8;
+  --accent: #ff9f6e;
+  --accent-strong: #ff7b54;
+  --danger: #ff7a7a;
+  --shadow: 0 20px 40px rgba(15, 11, 25, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #241f3a 0%, var(--bg) 58%);
+}
+
+body {
+  min-height: 100vh;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #1a1027;
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: #f4efe9;
+}
+
+.page-shell {
+  width: min(980px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.auth-shell {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.panel {
+  background: rgba(32, 28, 49, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1.6rem;
+}
+
+.auth-panel {
+  width: min(480px, 100%);
+}
+
+.form-panel {
+  width: min(720px, 100%);
+}
+
+.section-header {
+  margin-bottom: 1.2rem;
+}
+
+.section-header h1,
+.topbar h2,
+.recipe-card h3,
+.empty-card h3 {
+  margin: 0.1rem 0 0;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+label {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+input, textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f4efe9;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.topbar-actions,
+.actions-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.recipe-card,
+.empty-card {
+  background: rgba(42, 36, 64, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.2rem;
+}
+
+.recipe-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.delete-btn {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 122, 122, 0.12);
+  border: 1px solid rgba(255, 122, 122, 0.25);
+  color: var(--danger);
+  border-radius: 8px;
+  cursor: pointer;
+  width: auto;
+  min-width: unset;
+}
+
+.delete-btn:hover {
+  background: rgba(255, 122, 122, 0.25);
+  transform: none;
+}
+
+.recipe-meta {
+  margin-top: 1rem;
+}
+
+.recipe-meta span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.recipe-meta p {
+  margin: 0.35rem 0 0;
+  white-space: pre-wrap;
+}
+
+.inline-callout {
+  margin: 0.8rem 0 1rem;
+  border: 1px solid rgba(255, 159, 110, 0.4);
+  background: rgba(255, 159, 110, 0.08);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+}
+
+.inline-callout p {
+  margin: 0 0 0.35rem;
+}
+
+.error-text {
+  margin-top: 1rem;
+  color: var(--danger);
+}
+
+.recipe-form {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(94vw, 100%);
+    padding-top: 1rem;
+  }
+
+  .topbar,
+  .actions-row,
+  .topbar-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+}
